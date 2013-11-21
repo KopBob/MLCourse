@@ -36,8 +36,20 @@ grad = zeros(size(theta));
 %           grad = grad + YOUR_CODE_HERE (using the temp variable)
 %
 
+dim = 2:size(theta,1);
+
+% Hypothesis
+h_theta = sigmoid(X * theta);
 
 
+% Cost function + Regularization
+J = (  1/m * ( (-y' * log(h_theta)) - (1-y') * log(1 - h_theta) ) ...
+	+ lambda/(2*m) * sum(theta(dim)'*theta(dim)) );
+
+% Gradien + Regularization
+grad = (  1/m * X'*(sigmoid(X * theta) - y) ...
+	+ (lambda/m)*theta );
+grad(1) = (  1/m * sum((sigmoid(X * theta) - y)*X(1))  ); % No Regularization for theta(1)
 
 
 
