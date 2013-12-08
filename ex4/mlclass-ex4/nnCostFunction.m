@@ -108,6 +108,33 @@ reg = (lambda / (2 * m)) * (reg1 + reg2);
 J = J/m;
 J = J + reg;
 
+
+% Backpropagation
+
+% delta3 = zeros(num_labels, m);
+delta2 = zeros(hidden_layer_size, m);
+delta3 = h - yy';
+
+Theta2 = Theta2(:,2:end);
+Theta1 = Theta1(:,2:end);
+
+
+for t = 1:m,
+	% Compute Error For Output Layer.
+
+	for k = 1:hidden_layer_size,
+		delta2(k, t) = (Theta2(:,k)' * delta3(:,t)) ;
+	end
+end
+delta2 = delta2 .* (sigmoidGradient(z2));
+
+B2 = delta3*a2';
+Theta2_grad = (1/m) * B2 .+ (lambda/m)*sum(sum(Theta2));
+
+B1 = delta2*a1';
+Theta1_grad = (1/m) * B1 .+ (lambda/m)*sum(sum(Theta2));
+
+
 % -------------------------------------------------------------
 
 % =========================================================================
