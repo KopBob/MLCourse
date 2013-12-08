@@ -63,8 +63,50 @@ Theta2_grad = zeros(size(Theta2));
 %
 
 
+[m n] = size(X);
+
+% Forward Propagation
+X = [ones(m, 1) X];
+X = X';
+
+a1 = X;
+z2 = Theta1*a1;
+a2 = [ones(1, m); sigmoid(z2)];
+
+z3 = Theta2*a2;
+a3 = sigmoid(z3);
+h = a3;
+
+% Cost Function
+yy = eye(num_labels)(y, :);
+
+for i = 1:m,
+	for k = 1:num_labels,
+		y_ = yy(i, k);
+		h_ = h(k, i);
+		J = J + ( -y_*log(h_) - (1 - y_)*log(1 - h_) );
+	end
+end
+
+reg1 = 0;
+for i = 1:input_layer_size,
+	for j = 1:hidden_layer_size,
+		reg1 = reg1 + Theta1(j, i+1)^2;
+	end
+end
 
 
+reg2 = 0;
+for i = 1:hidden_layer_size,
+	for j = 1:num_labels,
+		reg2 = reg2 + Theta2(j, i+1)^2;
+	end
+end
+
+reg = (lambda / (2 * m)) * (reg1 + reg2);
+
+J = J/m;
+J = J + reg;
 
 % -------------------------------------------------------------
 
