@@ -128,6 +128,7 @@ for t = 1:m,
 end
 delta2 = delta2 .* (sigmoidGradient(z2));
 
+% ToDo: Regularization is incoreect. 
 B2 = delta3*a2';
 Theta2_grad = (1/m) * B2 .+ (lambda/m)*sum(sum(Theta2));
 
