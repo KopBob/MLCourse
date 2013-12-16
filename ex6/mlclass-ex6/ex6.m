@@ -32,7 +32,7 @@ fprintf('Loading and Visualizing Data ...\n')
 load('ex6data1.mat');
 
 % Plot training data
-plotData(X, y);
+% plotData(X, y);
 
 fprintf('Program paused. Press enter to continue.\n');
 pause;
