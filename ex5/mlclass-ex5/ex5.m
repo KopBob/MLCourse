@@ -35,7 +35,7 @@ load ('ex5data1.mat');
 m = size(X, 1);
 
 % Plot training data
-plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
+% plot(X, y, 'rx', 'MarkerSize', 10, 'LineWidth', 1.5);
 xlabel('Change in water level (x)');
 ylabel('Water flowing out of the dam (y)');
 
@@ -46,7 +46,7 @@ pause;
 %  You should now implement the cost function for regularized linear 
 %  regression. 
 %
-
+fprintf('=========== Part 2: Regularized Linear Regression Cost =============\n')
 theta = [1 ; 1];
 J = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
 
@@ -60,7 +60,7 @@ pause;
 %  You should now implement the gradient for regularized linear 
 %  regression.
 %
-
+fprintf('=========== Part 3: Regularized Linear Regression Gradient =============\n')
 theta = [1 ; 1];
 [J, grad] = linearRegCostFunction([ones(m, 1) X], y, theta, 1);
 
@@ -80,7 +80,7 @@ pause;
 %  Write Up Note: The data is non-linear, so this will not give a great 
 %                 fit.
 %
-
+fprintf('=========== Part 4: Train Linear Regression =============\n')
 %  Train linear regression with lambda = 0
 lambda = 0;
 [theta] = trainLinearReg([ones(m, 1) X], y, lambda);
@@ -103,7 +103,7 @@ pause;
 %  Write Up Note: Since the model is underfitting the data, we expect to
 %                 see a graph with "high bias" -- slide 8 in ML-advice.pdf 
 %
-
+fprintf('=========== Part 5: Learning Curve for Linear Regression =============\n')
 lambda = 0;
 [error_train, error_val] = ...
     learningCurve([ones(m, 1) X], y, ...
@@ -129,7 +129,7 @@ pause;
 %  One solution to this is to use polynomial regression. You should now
 %  complete polyFeatures to map each example into its powers
 %
-
+fprintf('=========== Part 6: Feature Mapping for Polynomial Regression =============\n')
 p = 8;
 
 % Map X onto Polynomial Features and Normalize
@@ -163,8 +163,8 @@ pause;
 %  lambda = 0. You should try running the code with different values of
 %  lambda to see how the fit and learning curve change.
 %
-
-lambda = 0;
+fprintf('=========== Part 7: Learning Curve for Polynomial Regression =============\n')
+lambda = 3;
 [theta] = trainLinearReg(X_poly, y, lambda);
 
 % Plot training data and fit
@@ -200,7 +200,7 @@ pause;
 %  lambda on a validation set. You will then use this to select the
 %  "best" lambda value.
 %
-
+fprintf('=========== Part 8: Validation for Selecting Lambda =============\n')
 [lambda_vec, error_train, error_val] = ...
     validationCurve(X_poly, y, X_poly_val, yval);
 
