@@ -24,7 +24,7 @@ clear ; close all; clc
 %  The following code will load the dataset into your environment and plot
 %  the data.
 %
-
+fprintf('=============== Part 1: Loading and Visualizing Data ================\n')
 fprintf('Loading and Visualizing Data ...\n')
 
 % Load from ex6data1: 
@@ -41,7 +41,7 @@ pause;
 %  The following code will train a linear SVM on the dataset and plot the
 %  decision boundary learned.
 %
-
+fprintf('=============== Part 2: Training Linear SVM ================\n')
 % Load from ex6data1: 
 % You will have X, y in your environment
 load('ex6data1.mat');
@@ -50,7 +50,7 @@ fprintf('\nTraining Linear SVM ...\n')
 
 % You should try to change the C value below and see how the decision
 % boundary varies (e.g., try C = 1000)
-C = 1;
+C = 100;
 model = svmTrain(X, y, C, @linearKernel, 1e-3, 20);
 visualizeBoundaryLinear(X, y, model);
 
@@ -61,6 +61,7 @@ pause;
 %  You will now implement the Gaussian kernel to use
 %  with the SVM. You should complete the code in gaussianKernel.m
 %
+fprintf('=============== Part 3: Implementing Gaussian Kernel ===============\n')
 fprintf('\nEvaluating the Gaussian Kernel ...\n')
 
 x1 = [1 2 1]; x2 = [0 4 -1]; sigma = 2;
@@ -76,7 +77,7 @@ pause;
 %  The following code will load the next dataset into your environment and 
 %  plot the data. 
 %
-
+fprintf('=============== Part 4: Visualizing Dataset 2 ================\n')
 fprintf('Loading and Visualizing Data ...\n')
 
 % Load from ex6data2: 
@@ -93,6 +94,7 @@ pause;
 %  After you have implemented the kernel, we can now use it to train the 
 %  SVM classifier.
 % 
+fprintf('========== Part 5: Training SVM with RBF Kernel (Dataset 2) ==========\n')
 fprintf('\nTraining SVM with RBF Kernel (this may take 1 to 2 minutes) ...\n');
 
 % Load from ex6data2: 
@@ -115,7 +117,7 @@ pause;
 %  The following code will load the next dataset into your environment and 
 %  plot the data. 
 %
-
+fprintf('=============== Part 6: Visualizing Dataset 3 ================\n')
 fprintf('Loading and Visualizing Data ...\n')
 
 % Load from ex6data3: 
@@ -133,7 +135,7 @@ pause;
 %  This is a different dataset that you can use to experiment with. Try
 %  different values of C and sigma here.
 % 
-
+fprintf('========== Part 7: Training SVM with RBF Kernel (Dataset 3) ==========\n')
 % Load from ex6data3: 
 % You will have X, y in your environment
 load('ex6data3.mat');
