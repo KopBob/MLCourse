@@ -24,6 +24,15 @@ idx = zeros(size(X,1), 1);
 
 
 
+for i=1:size(X,1)
+	norms = bsxfun(@minus,centroids,X(i,:));
+	for c=1:K,
+		norms(c,1) = norm(norms(c,:));
+	end
+	[n, idx(i)] = min(norms(:,1));
+end
+
+
 
 
 
