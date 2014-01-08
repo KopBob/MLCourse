@@ -198,7 +198,7 @@ close all; close all; clc
 % Re-load the image from the previous exercise and run K-Means on it
 % For this to work, you need to complete the K-Means assignment first
 % A = double(imread('bird_small.png'));
-A = double(load ('bird_small.mat'));
+A = double(load('bird_small.mat'));
 
 % If imread does not work for you, you can try instead
 %   load ('bird_small.mat');
