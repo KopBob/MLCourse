@@ -42,10 +42,8 @@ Theta_grad = zeros(size(Theta));
 
 
 
-
-
-
-
+% indx = R == 1;
+J = (1/2) * sum(((X*Theta')(R == 1) - Y(R == 1)) .^ 2);  
 
 
 
