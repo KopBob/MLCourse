@@ -14,7 +14,7 @@
 %  For this exercise, you will not need to change any code in this file,
 %  or any other files other than those mentioned above.
 %
-
+fprintf('=============== Part 1: Loading movie ratings dataset ================\n');
 %% =============== Part 1: Loading movie ratings dataset ================
 %  You will start by loading the movie ratings dataset to understand the
 %  structure of the data.
@@ -35,13 +35,15 @@ fprintf('Average rating for movie 1 (Toy Story): %f / 5\n\n', ...
         mean(Y(1, R(1, :))));
 
 %  We can "visualize" the ratings matrix by plotting it with imagesc
-imagesc(Y);
-ylabel('Movies');
-xlabel('Users');
+% imagesc(Y);
+% ylabel('Movies');
+% xlabel('Users');
 
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
+
+fprintf('============ Part 2: Collaborative Filtering Cost Function ===========\n');
 %% ============ Part 2: Collaborative Filtering Cost Function ===========
 %  You will now implement the cost function for collaborative filtering.
 %  To help you debug your cost function, we have included set of weights
@@ -69,6 +71,7 @@ fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
+fprintf('============== Part 3: Collaborative Filtering Gradient ==============\n');
 %% ============== Part 3: Collaborative Filtering Gradient ==============
 %  Once your cost function matches up with ours, you should now implement 
 %  the collaborative filtering gradient function. Specifically, you should 
@@ -82,7 +85,7 @@ checkCostFunction;
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
-
+fprintf('========= Part 4: Collaborative Filtering Cost Regularization ========\n');
 %% ========= Part 4: Collaborative Filtering Cost Regularization ========
 %  Now, you should implement regularization for the cost function for 
 %  collaborative filtering. You can implement it by adding the cost of
@@ -100,6 +103,7 @@ fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
+fprintf('======= Part 5: Collaborative Filtering Gradient Regularization ======\n');
 %% ======= Part 5: Collaborative Filtering Gradient Regularization ======
 %  Once your cost matches up with ours, you should proceed to implement 
 %  regularization for the gradient. 
@@ -115,6 +119,7 @@ fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
+fprintf('============== Part 6: Entering ratings for a new user ===============\n');
 %% ============== Part 6: Entering ratings for a new user ===============
 %  Before we will train the collaborative filtering model, we will first
 %  add ratings that correspond to a new user that we just observed. This
@@ -157,6 +162,7 @@ fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
 
+fprintf('================== Part 7: Learning Movie Ratings ====================\n');
 %% ================== Part 7: Learning Movie Ratings ====================
 %  Now, you will train the collaborative filtering model on a movie rating 
 %  dataset of 1682 movies and 943 users
@@ -210,6 +216,7 @@ fprintf('Recommender system learning completed.\n');
 fprintf('\nProgram paused. Press enter to continue.\n');
 pause;
 
+fprintf('================== Part 8: Recommendation for you ====================\n');
 %% ================== Part 8: Recommendation for you ====================
 %  After training the model, you can now make recommendations by computing
 %  the predictions matrix.
